@@ -1,0 +1,33 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+/* setting body to take up full screen  */
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* main container styling */
+.container {
+  display: flex;
+  height: 50vh;
+  width: 70vw;
+}
+
+/* img container,form holder dimensions*/
+.img-holder,
+.content {
+  width: 500px;
+  height: 500px;
+}
+
+/* img inside the container */
+.currentImg {
+  width: 500px;
+  height: 500px;
+}
