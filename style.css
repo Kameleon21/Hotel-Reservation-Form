@@ -1,33 +1,52 @@
+body,
+html {
+  height: 100%;
+}
+
 * {
+  box-sizing: border-box;
   margin: 0px;
   padding: 0px;
 }
 
-/* setting body to take up full screen  */
-body {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.bg-img {
+  height: 100%;
+  background-image: url(./assets/visualsofdana-T5pL6ciEn-I-unsplash.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: blur(8px);
 }
 
 /* main container styling */
 .container {
   display: flex;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
 }
 
 /* form container / form styling  */
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #fff;
+}
+
 .content h2 {
+  margin-top: 1rem;
   text-align: center;
   letter-spacing: 1px;
 }
 
 form {
-  margin-top: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 7rem;
+  gap: 6rem;
 }
 
 form input {
@@ -39,8 +58,15 @@ form input {
   display: flex;
 }
 
-.wrapper>:first-child {
+.wrapper > :first-child {
   margin-right: 1.5rem;
+}
+
+form button {
+  padding: 0.5rem 9rem;
+  border-color: #fda636;
+  background-color: #fda636;
+  margin-bottom: 1.2rem;
 }
 
 /*img and two containers dimensions */
@@ -56,4 +82,15 @@ form input {
   background-position: center;
   background-repeat: no-repeat;
   object-fit: cover;
+}
+
+
+/* styling for valid and non-valid format */
+
+input:valid:focus {
+  border: 2px solid green;
+}
+
+input:invalid {
+  border: 2px solid red;
 }

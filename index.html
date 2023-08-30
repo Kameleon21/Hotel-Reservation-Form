@@ -7,19 +7,23 @@
     <title>Hotel Reservation Form</title>
   </head>
   <body>
+    <!-- bg img container -->
+    <div class="bg-img"></div>
+    <!-- main content and img -->
     <div class="container">
       <div class="img-holder">
         <img
-          src="./assets/point3d-commercial-imaging-ltd-oxeCZrodz78-unsplash.jpg"
+          src="./assets/visualsofdana-T5pL6ciEn-I-unsplash.jpg"
           class="currentImg"
         />
       </div>
       <div class="content">
         <h2>Booking Info</h2>
-        <form action="post">
+        <form novalidate class="mainForm">
           <div class="wrapper">
             <input type="text" placeholder="First Name" class="name" />
             <input type="email" placeholder="Email" class="email" />
+            <span class="error" aria-live="polite"></span>
           </div>
           <div class="wrapper">
             <input type="text" placeholder="Country" class="country" />
@@ -28,12 +32,12 @@
           <div class="wrapper">
             <input type="password" placeholder="Password" class="password" />
             <input
-              type="text"
+              type="password"
               placeholder="Confirm Password"
               class="conPassword"
             />
           </div>
-          <button type="submit">Book Now</button>
+          <button type="submit">BOOK NOW</button>
         </form>
       </div>
     </div>
