@@ -17,16 +17,22 @@
       <div class="content">
         <h2>Booking Info</h2>
         <form action="post">
-          <input type="text" placeholder="First Name" class="name" />
-          <input type="email" placeholder="Email" class="email" />
-          <input type="text" placeholder="Country" class="country" />
-          <input type="text" placeholder="Zip Code" class="zipcode" />
-          <input type="password" placeholder="Password" class="password" />
-          <input
-            type="text"
-            placeholder="Confirm Password"
-            class="conPassword"
-          />
+          <div class="wrapper">
+            <input type="text" placeholder="First Name" class="name" />
+            <input type="email" placeholder="Email" class="email" />
+          </div>
+          <div class="wrapper">
+            <input type="text" placeholder="Country" class="country" />
+            <input type="text" placeholder="Zip Code" class="zipcode" />
+          </div>
+          <div class="wrapper">
+            <input type="password" placeholder="Password" class="password" />
+            <input
+              type="text"
+              placeholder="Confirm Password"
+              class="conPassword"
+            />
+          </div>
           <button type="submit">Book Now</button>
         </form>
       </div>
