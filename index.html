@@ -19,23 +19,71 @@
       </div>
       <div class="content">
         <h2>Booking Info</h2>
-        <form novalidate class="mainForm">
+        <form class="mainForm" novalidate>
           <div class="wrapper">
-            <input type="text" placeholder="First Name" class="name" />
-            <input type="email" placeholder="Email" class="email" />
-            <span class="error" aria-live="polite"></span>
+            <section>
+              <input
+                type="text"
+                placeholder="First Name"
+                class="name"
+                minlength="3"
+                required
+              />
+              <span class="error" aria-live="polite"></span>
+            </section>
+            <section>
+              <input
+                type="email"
+                placeholder="Email"
+                class="email"
+                minlength="8"
+                required
+              />
+              <span class="error" aria-live="polite"></span>
+            </section>
           </div>
           <div class="wrapper">
-            <input type="text" placeholder="Country" class="country" />
-            <input type="text" placeholder="Zip Code" class="zipcode" />
+            <section>
+              <input
+                type="text"
+                placeholder="Country"
+                class="country"
+                minlength="4"
+                required
+              />
+              <span class="error" aria-live="polite"></span>
+            </section>
+            <section>
+              <input
+                type="text"
+                placeholder="Postal Code"
+                class="postalCode"
+                minlength="6"
+                required
+              />
+              <span class="error" aria-live="polite"></span>
+            </section>
           </div>
           <div class="wrapper">
-            <input type="password" placeholder="Password" class="password" />
-            <input
-              type="password"
-              placeholder="Confirm Password"
-              class="conPassword"
-            />
+            <section>
+              <input
+                type="password"
+                placeholder="Password"
+                class="password"
+                minlength="10"
+                required
+              />
+              <span class="error" aria-live="polite"></span>
+            </section>
+            <section>
+              <input
+                type="password"
+                placeholder="Confirm Password"
+                class="conPassword"
+                required
+              />
+              <span class="error" aria-live="polite"></span>
+            </section>
           </div>
           <button type="submit">BOOK NOW</button>
         </form>
