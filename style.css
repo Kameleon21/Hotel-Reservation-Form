@@ -73,6 +73,11 @@ form button {
   border-color: #fda636;
   background-color: #fda636;
   margin-bottom: 1.2rem;
+  transition: linear 1ms;
+}
+
+button:hover {
+  transform: scale(1.1);
 }
 
 /*img and two containers dimensions */
@@ -100,7 +105,6 @@ input:valid {
 }
 
 /* error handling */
-
 .error {
   display: inline-block;
   width: 177px;
@@ -111,5 +115,5 @@ input:valid {
 }
 
 .error.active {
-  padding: 0.2em ;
+  padding: 0.2em;
 }
