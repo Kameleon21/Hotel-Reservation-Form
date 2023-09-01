@@ -1,5 +1,5 @@
 // target values of the form
-const form = document.querySelector(".form");
+const form = document.querySelector(".mainForm");
 const firstName = document.querySelector(".name");
 const email = document.querySelector(".email");
 const country = document.querySelector(".country");
@@ -12,22 +12,25 @@ const emailError = document.querySelector(".email + span.error");
 const countryError = document.querySelector(".country + span.error");
 const postalCodeError = document.querySelector(".postalCode + span.error");
 const passwordError = document.querySelector(".password + span.error");
-
-email.addEventListener("input", (event) => {
-  if (email.validity.valid) {
-    emailError.textContent = "";
-    emailError.className = "error";
-  } else {
-    showError(email);
-  }
-});
+const confirmPasswordError = document.querySelector(
+  ".conPassword + span.error"
+);
 
 firstName.addEventListener("input", (event) => {
   if (firstName.validity.valid) {
     nameError.textContent = "";
     nameError.className = "error";
   } else {
-    showError(firstName);
+    showError(firstName, nameError);
+  }
+});
+
+email.addEventListener("input", (event) => {
+  if (email.validity.valid) {
+    emailError.textContent = "";
+    emailError.className = "error";
+  } else {
+    showError(email, emailError);
   }
 });
 
@@ -36,7 +39,7 @@ country.addEventListener("input", (event) => {
     countryError.textContent = "";
     countryError.className = "error";
   } else {
-    showError(country);
+    showError(country, countryError);
   }
 });
 
@@ -45,7 +48,7 @@ postalCode.addEventListener("input", (event) => {
     postalCodeError.textContent = "";
     postalCodeError.className = "error";
   } else {
-    showError(postalCode);
+    showError(postalCode, postalCodeError);
   }
 });
 
@@ -54,42 +57,66 @@ pass.addEventListener("input", (event) => {
     passwordError.textContent = "";
     passwordError.className = "error";
   } else {
-    showError(pass);
+    showError(pass, passwordError);
   }
 });
 
+confirmPassword.addEventListener("input", (event) => {
+  let passValue = document.querySelector(".password").value;
+  let confirmPasswordValue = document.querySelector(".conPassword").value;
+  if (confirmPasswordValue === passValue) {
+    confirmPasswordError.textContent = " ";
+    confirmPasswordError.className = "error";
+  } else {
+    showError(confirmPassword, confirmPasswordError);
+  }
+});
+
+// added an array to loop through all fields
+const fields = [firstName, email, country, postalCode, pass, confirmPassword];
+
 form.addEventListener("submit", (event) => {
-  if (!email.validity.valid) {
-    showError();
+  let isFormValid = true;
+
+  fields.forEach((field) => {
+    if (!field.validity.valid) {
+      showError(field, field.nextElementSibling);
+      isFormValid = false;
+    }
+  });
+
+  if (!isFormValid) {
     event.preventDefault();
   }
 });
 
 // displays the error based on type of issue
-function showError(field) {
+function showError(field, errorType) {
   switch (field) {
     case firstName:
+      errorType.className = "error active";
       firstNameErrorContent();
       break;
     case email:
+      errorType.className = "error active";
       emailErrorContent();
       break;
     case country:
+      errorType.className = "error active";
       countryErrorContent();
       break;
     case postalCode:
+      errorType.className = "error active";
       postalCodeErrorContent();
       break;
     case pass:
+      errorType.className = "error active";
       passErrorContent();
       break;
-    default:
-      alert("No field chosen");
-  }
-
-  errorType.className = "error active";
-  if ((errorType.className = "error")) {
-    errorType.textContent = " ";
+    case confirmPassword:
+      errorType.className = "error active";
+      confirmPasswordErrorContent();
+      break;
   }
 }
 
@@ -125,7 +152,7 @@ function countryErrorContent() {
 // postal code error details
 function postalCodeErrorContent() {
   if (postalCode.validity.valueMissing) {
-    postalCode.textContent = "You need to enter your country postal code.";
+    postalCodeError.textContent = "You need to enter your country postal code.";
   } else if (postalCode.validity.tooShort) {
     postalCodeError.textContent = `Postal code should be at least ${postalCode.minLength} characters; you entered ${postalCode.value.length}.`;
   }
@@ -138,4 +165,8 @@ function passErrorContent() {
   } else if (pass.validity.tooShort) {
     passwordError.textContent = `Password code should be at least ${pass.minLength} characters; you entered ${pass.value.length}.`;
   }
+}
+
+function confirmPasswordErrorContent() {
+  confirmPasswordError.textContent = "Passwords don't match";
 }

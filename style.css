@@ -33,7 +33,6 @@ html {
 .content {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   background-color: #fff;
 }
 
@@ -48,7 +47,7 @@ form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6rem;
+  gap: 5.5rem;
 }
 
 form input {
@@ -105,13 +104,12 @@ input:valid {
 .error {
   display: inline-block;
   width: 177px;
-  padding: 0;
   font-size: 0.85rem;
   color: white;
   background-color: red;
   border-radius: 0 0 5px 5px;
 }
 
-.error .active {
-  padding: 0.3em;
+.error.active {
+  padding: 0.2em ;
 }
