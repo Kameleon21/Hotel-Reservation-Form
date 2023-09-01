@@ -4,7 +4,9 @@
 
 This project focuses on implementing a hotel reservation form with real-time validation. It's primarily aimed to teach and practice form validation using JavaScript's Constraint Validation API.
 
-![Screenshot](path/to/screenshot)
+
+## Live link
+https://kameleon21.github.io/Hotel-Reservation-Form/
 
 ## Technologies Used
 
